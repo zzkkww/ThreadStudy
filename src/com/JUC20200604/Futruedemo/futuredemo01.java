@@ -9,6 +9,11 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * 异步执行
+ * 成功回调
+ * 失败回调
+ */
 public class futuredemo01 {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         //Future找它的实现类

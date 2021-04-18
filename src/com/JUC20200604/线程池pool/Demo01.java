@@ -9,7 +9,7 @@ import java.util.concurrent.Executors;
 
 public class Demo01 {
     public static void main(String[] args) {
-        ExecutorService threadPool = Executors.newSingleThreadExecutor();//单个线程池
+        ExecutorService threadPool = Executors.newSingleThreadExecutor();//只能有一条线程进行操作，单个线程池
         //ExecutorService threadPool=Executors.newFixedThreadPool(5);//创建一个固定的线程池的大小
         //ExecutorService threadPool=Executors.newCachedThreadPool();//可伸缩 大小
 

@@ -45,7 +45,7 @@ class MakeUp extends Thread {
         if (choice == 0) {
             synchronized (l) {
                 System.out.println(this.getName() + "获得口红的锁");
-                Thread.sleep(1000);
+//                Thread.sleep(1000);
 
                 synchronized (m) {
                     System.out.println("获得镜子的锁");
@@ -54,7 +54,7 @@ class MakeUp extends Thread {
         } else {
             synchronized (m) {
                 System.out.println(this.getName() + "获得镜子的锁");
-                Thread.sleep(2000);
+//                Thread.sleep(2000);
                 synchronized (l) {
                     System.out.println("获得口红的锁");
                 }

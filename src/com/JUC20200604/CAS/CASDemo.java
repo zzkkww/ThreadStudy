@@ -10,7 +10,7 @@ import java.util.concurrent.atomic.AtomicStampedReference;
 
 public class CASDemo {
 
-    //Interger  2000太大了 -128---127  改成1就不会错了
+    //Interger  2000太大了 -128---127  改成1就不会错了 如果是包装类 -128-127是从缓存里面拿 是同一个对象，如果超过了这个范围会重新new对象
     //AtomicStampedReference注意 如果泛型是一个包装类 注意对象的引用问题
     static  AtomicStampedReference<Integer> atomicStampedReference = new AtomicStampedReference<>(1,1);
 

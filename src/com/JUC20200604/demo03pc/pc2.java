@@ -8,6 +8,10 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+/** 生产者消费者问题
+ * 用Lock替换了Synchronized 然后用里面的Condition 里面的
+ * await signalAll替换了 wait  notifyall
+ */
 public class pc2 {
     public static void main(String[] args) {
         Data2 data = new Data2();

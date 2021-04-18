@@ -4,6 +4,7 @@ package com.JUC20200604.八锁;/*
  * Date  :   2020/6/4 23:00
  * */
 
+import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
 public class Test1 {
@@ -24,6 +25,15 @@ public class Test1 {
             phone.call();
         },"B").start();
 
+
+//        HashMap<Integer, Object> map = new HashMap<>();
+//        map.put(1,new Thread(()->{
+//            System.out.println(Thread.currentThread().getName());
+//        }));
+//        map.put(2,"1");
+//        for (Integer o : map.keySet()) {
+//            System.out.println(map.get(o));
+//        }
     }
 
 }
