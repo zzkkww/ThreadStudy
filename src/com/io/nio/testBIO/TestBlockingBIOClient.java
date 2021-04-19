@@ -40,8 +40,10 @@ public class TestBlockingBIOClient {
 
         //3、读取本地文件，并发送到服务端
         FileChannel inchannel = FileChannel.open(Paths.get("1.png"), StandardOpenOption.READ);
+        //先读进去
         while (inchannel.read(buf)!=-1){
             buf.flip();
+            //最后写入通道里面
             sChannel.write(buf);
             buf.clear();
         }

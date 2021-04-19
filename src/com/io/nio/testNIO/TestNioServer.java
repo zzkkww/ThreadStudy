@@ -21,7 +21,7 @@ public class TestNioServer {
         //2、切换非阻塞模式
         ssChannel.configureBlocking(false);
 
-        //3、绑定连接
+        //3、绑定端口连接
         ssChannel.bind(new InetSocketAddress(9898));
 
         //4、获取选择器
@@ -43,8 +43,8 @@ public class TestNioServer {
                     //10、若是接收到了“接收就绪”，则获取客户端的连接
                     SocketChannel sChannel = ssChannel.accept();
                     //11、切换非阻塞模式
-                    ssChannel.configureBlocking(false);
-                    //12、将该通道注册到选择器上
+                    sChannel.configureBlocking(false);
+                    //12、将客户端的通道注册到选择器上 OP_READ为什么是读，因为客户端可以说是写数据过来，那么我服务端就对应着读事件
                     sChannel.register(selector,SelectionKey.OP_READ);
                 }else if (sk.isReadable()){
                     //13、获取当前选择器上“读就绪“状态的通道
@@ -54,12 +54,12 @@ public class TestNioServer {
                     int len=0;
                     while ((len=sChannel.read(buf))>0){
                         buf.flip();
-                        System.out.println(buf.get());
+                        System.out.println(new String(buf.array(),0,len));
                         buf.clear();
                     }
                 }
             }
-            //15、取消选择键，否则别的连接不能连接进去
+            //15、处理完毕之后需要移除当前事件，要不然会重复处理
             it.remove();
         }
     }
