@@ -16,6 +16,7 @@ public class Demo03 {
         };*/
         Consumer<String> consumer=(str)->{
             System.out.println(str);
+            System.out.println("test");
         };
         consumer.accept("哈哈哈哈哈");
     }
